@@ -18,7 +18,7 @@ class Agent(BaseModel):
     model: str = os.getenv('MODEL_NAME')
     instructions: Union[str, Callable[[], str]] = "You are a helpful agent."
     functions: List[AgentFunction] = []
-    tool_choice: str = "auto"
+    tool_choice: str = None
     parallel_tool_calls: bool = True
 
 

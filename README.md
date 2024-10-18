@@ -1,3 +1,15 @@
+**NOTE**: this is a fork of [openai/swarm](https://github.com/openai/swarm).
+
+The code in this project is updated to use a local model hosted through an OpenAI compatible endpoint.
+I'm using [vllm](https://github.com/vllm-project/vllm) to host [Llama-3.1-Nemotron-70B-Instruct-HF1](https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct-HF).
+To use such a model, you need to set the following ENV variables:
+
+```bash
+export OPENAI_ENDPOINT="http://localhost:8000/v1"
+export MODEL_NAME="Llama-3.1-Nemotron-70B-Instruct-HF"
+```
+
+
 ![Swarm Logo](assets/logo.png)
 
 # Swarm (experimental, educational)
@@ -14,13 +26,13 @@ An educational framework exploring ergonomic, lightweight multi-agent orchestrat
 Requires Python 3.10+
 
 ```shell
-pip install git+ssh://git@github.com/openai/swarm.git
+pip install git+ssh://git@github.com/tobrun/swarm-local.git
 ```
 
 or
 
 ```shell
-pip install git+https://github.com/openai/swarm.git
+pip install git+https://github.com/tobrun/swarm-local.git
 ```
 
 ## Usage

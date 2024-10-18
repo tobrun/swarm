@@ -20,6 +20,8 @@ from .types import (
     Result,
 )
 
+import os
+
 __CTX_VARS_NAME__ = "context_variables"
 
 
@@ -27,6 +29,7 @@ class Swarm:
     def __init__(self, client=None):
         if not client:
             client = OpenAI()
+            client.base_url = os.getenv('OPENAI_ENDPOINT')
         self.client = client
 
     def get_chat_completion(

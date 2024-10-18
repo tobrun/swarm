@@ -8,12 +8,14 @@ from typing import List, Callable, Union, Optional
 # Third-party imports
 from pydantic import BaseModel
 
+import os
+
 AgentFunction = Callable[[], Union[str, "Agent", dict]]
 
 
 class Agent(BaseModel):
     name: str = "Agent"
-    model: str = "gpt-4o"
+    model: str = os.getenv('MODEL_NAME')
     instructions: Union[str, Callable[[], str]] = "You are a helpful agent."
     functions: List[AgentFunction] = []
     tool_choice: str = None
